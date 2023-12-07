@@ -1,0 +1,39 @@
+<mat-toolbar>
+  <span>Alphabetical Number Sorting</span>
+</mat-toolbar>
+
+
+<mat-grid-list cols="4" rowHeight="46vh">
+  <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile colspan="2">
+    <mat-card>
+      <mat-card-content class="block-center px-30">
+        <input-clearable title="Numbers" placeholder="1,2,3,11,8999,16" [(value)]="numbersString"></input-clearable>
+      </mat-card-content>
+      <mat-card-actions class="flex-center">
+        <button mat-raised-button color="primary" (click)="onSortText()">Sort Text</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile colspan="4" class="output">
+    @if (words !== null) {
+      <words-list [words]="words" style="min-width: 80%; height: 100%;"></words-list>
+    }
+    @else if (error.length > 0) {
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title class="error">{{error}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          Only whole numbers and commas are accepted.
+          <br />
+          Ex. 2, 500, -67, 10338
+        </mat-card-content>
+      </mat-card>
+    }
+  </mat-grid-tile>
+</mat-grid-list>
+
+
+<router-outlet></router-outlet>

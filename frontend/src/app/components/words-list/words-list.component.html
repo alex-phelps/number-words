@@ -1,0 +1,16 @@
+<mat-list>
+    @for (word of words; track word) {
+        @if (word.over9000) {
+            <div class="image-div">
+                <img class="images" [src]="'assets/itsover9000.jpg'" title="{{word.words}}" />
+            </div>
+        }
+        @else {
+            <mat-list-item>
+                <span class="word">
+                    <h1>{{word.words}}</h1>
+                </span>
+            </mat-list-item>
+        }
+    }
+</mat-list>
